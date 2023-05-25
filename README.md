@@ -3,12 +3,13 @@
 The Habit Tracker is a web application designed to help users create, update, delete, and track their habits on a daily basis.
 It provides a user-specific experience, allowing each user to manage their own habits and mark them as done or not done.
 
-##Tech Stack:
+## Tech Stack:
 - Node.js: A JavaScript runtime environment that allows running JavaScript on the server-side.
 - Express.js: A web application framework for Node.js, used for handling server-side logic and creating RESTful APIs.
 - MongoDB: A NoSQL database used for storing and retrieving product inventory data.
 
 ## Installation
+
 To run this application on your local machine, please follow these steps:
 
 Clone this repository using the following command:
@@ -21,11 +22,11 @@ $ npm install
 ```
 Start the application using the following command:
 ```
-$ npm start 
+$ node index.js 
 ```
 Open the application in your web browser by visiting the following URL:
 ```
-$ http://localhost:8000 
+$ http://localhost:7000 
 ```
 
 ## Usage
