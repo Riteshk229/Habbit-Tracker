@@ -1,5 +1,4 @@
-<% for(let habbit of habbits) {%>   
-    <div class="weekly-view">
+   
         
         <!-- habit title -->
         <div class="habbit-title"> <h2><%= habbit.title %></h2> </div>
@@ -26,7 +25,8 @@
                 <!-- status -->
                     <div >
                         <a href="/user/habbit/toggle-status/?id=<%= habbit._id%>&date=<%=date%>" class="mark-status">
-                            <% if(found && status=='y') { %>
+
+                            <% if(found && status =='y') { %>
                                 <i class="fas fa-check-square" style="color: rgb(97, 245, 38)"></i>
                             <% } else if(found && status=='n') { %>
                                 <i class="fas fa-square-xmark" style="color: rgb(255, 25, 4)"></i>
@@ -44,5 +44,3 @@
                 </a>
             </div>
         </div>
-    </div>
-<% } %>

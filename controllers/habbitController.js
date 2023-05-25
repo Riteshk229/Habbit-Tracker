@@ -32,18 +32,20 @@ module.exports.createhabbit = async function(req, res) {
 // To toggle habbit's status
 module.exports.toggleStatus = async function(req, res) {
     try {
+
+        // console.log(req.query)
         let id = req.query.id;
         let date = req.query.date;
-        const habbit = await Habbit.findById(id);
+        const habit = await Habbit.findById(id);
         console.log(date);
 
-        if(!habbit) {
-            console.log('habit not present!');
+        if(!habit) {
+            console.log('Habbit not present!');
             return res.redirect('/');
         }
 
         // take out the date array of the habit.
-        let dates = habbit.dates;
+        let dates = habit.dates;
         let found = false;
 
         // changes the complete argument accodingly.
@@ -64,13 +66,13 @@ module.exports.toggleStatus = async function(req, res) {
             dates.push({date : date, complete : 'y'});
         }
         // Save dates
-        habbit.dates = dates;
+        habit.dates = dates;
         await habit.save();
-        return res.redirect('/');
+        return res.redirect('back');
         
     } catch (error) {
         console.log('Error in habitController/toggleStatus', error);
-        return res.redirect('/');
+        return res.redirect('back');
     }
 }
 

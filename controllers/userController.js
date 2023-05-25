@@ -40,7 +40,7 @@ module.exports.signUP = function(req,res){
         return res.redirect('/');
     }
 
-    return res.render('User_sign_up',{
+    return res.render('user_sign_up',{
         title: 'Sign Up'
     })
     

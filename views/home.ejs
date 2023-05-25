@@ -35,13 +35,20 @@
             <!------------- if there is habbit to show  ------------->
            <div id="habbit">
  
-             <button id="change-view" class="button-30" onclick="changeView()" > Weekly View</button>
-                <!-- weekly view -->
-                <%- include('weekly_view'); %>
+             <button id="change-view" class="button-30" onclick="changeView()" >Show weekly</button>
                
-                <!-- daily view  -->
-                <%- include('daily_view'); %>
+             <% for(let habbit of habbits) {%> 
 
+             <!-- weekly view -->
+             <div class="weekly-view">
+             <%- include('weekly_view',{habbit:habbit}); %>
+             </div>
+
+            <div class="daily-view" >
+            <%- include('daily_view',{habbit:habbit}); %>
+            </div>
+
+            <% } %>
             </div>
             <% } %>
    <% } %>
