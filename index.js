@@ -16,7 +16,7 @@ const passportLocal = require('./config/passport-local-strategy');
 
 //Starts express
 const app = express();
-const port = 7000;
+const port = process.env.port || 7000;
 
 //Importing template engine
 const expressLayout = require('express-ejs-layouts');
