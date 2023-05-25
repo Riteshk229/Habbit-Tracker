@@ -21,9 +21,11 @@ document.addEventListener('click', (event) => {
 
 function changeView() {
 
-  let weekly = document.querySelectorAll(".weekly-view");
+let weekly = document.querySelectorAll(".weekly-view");
 let daily = document.querySelectorAll(".daily-view");
 let button = document.getElementById("change-view");
+
+console.log(button);
 
   if(button.innerHTML == 'Daily View') {
     for(let d of daily) 
@@ -34,7 +36,7 @@ let button = document.getElementById("change-view");
     button.innerHTML = "Weekly View";
     button.style.color = "lawngreen";
     button.style.textShadow = "text-shadow: 2px 2px 0px rgb(255,165,49,0.8);"
-    // view = weekly;
+  
   } else {
     for(let d of daily) 
       d.style.display = 'flex';
@@ -48,5 +50,5 @@ let button = document.getElementById("change-view");
   }
 }
 
-changeView();
+// changeView();
 

@@ -4,6 +4,7 @@ const router = express.Router();
 
 //Importing home controller
 const homeController = require('../controllers/homeController');
+const password = require('../config/passport-local-strategy');
 
 router.get('/',homeController.home);
 
