@@ -1,5 +1,9 @@
 # HabitTracker
 
+A FullStack, app to track your daily and weekly activity.
+
+## Description
+
 The Habit Tracker is a web application designed to help users create, update, delete, and track their habits on a daily basis.
 It provides a user-specific experience, allowing each user to manage their own habits and mark them as done or not done.
 
@@ -14,7 +18,7 @@ To run this application on your local machine, please follow these steps:
 
 Clone this repository using the following command:
 ```
-$ git clone https://github.com/agentgrey/TodoList.git
+$ git clone https://github.com/Riteshk229/Habbit-Tracker.git
 ```
 Install the required dependencies using the following command:
 ```
@@ -22,7 +26,7 @@ $ npm install
 ```
 Start the application using the following command:
 ```
-$ node index.js 
+$ npm start 
 ```
 Open the application in your web browser by visiting the following URL:
 ```
@@ -32,12 +36,12 @@ $ http://localhost:7000
 ## Usage
 Once you have the application up and running, you can start using it by following these steps:
 * Sing-up/Sign-in into your account.
-* Click on the "Add Habit" button to create a new habit.
+* Click on the "Add New Habhits" to create a new habit.
 * Enter the name of the habit you want to track.
 * Click on the "Save" button to save the habit.
 * To mark a habit as complete/incomplete for the day, simply click on the corresponding icon.
 * To delete a habit, click on the "Delete" icon next to it.
-* To see today's habits, click on "Show Daily" button.
+* To see today's habits, click on "Daily view" button.
 * To edit a habit, click on the "Edit" icon next to it.
 
 ## Folder Structure
@@ -82,3 +86,5 @@ Habit Tracker
     |-->package.json
     
  ````
+## Live Demo
+https://track-it-z9lk.onrender.com/
