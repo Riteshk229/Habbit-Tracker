@@ -1,0 +1,44 @@
+form {
+  display: flex;
+  height: auto;
+  margin-top: 3%;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 100%;
+}
+form input {
+  display: block;
+  margin: 10px;
+  width: 300px;
+  padding: 5px;
+  border: none;
+  text-align: center;
+  box-shadow: 0px 0px 2px 2px lavender;
+}
+form #habbit {
+  height: 30px;
+  margin-bottom: 2%;
+  width: 90%;
+}
+form #desc {
+  height: 50px;
+  width: 300px;
+}
+form #button {
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-around;
+}
+form #button button {
+  width: 30%;
+  height: 30px;
+  border-radius: 20px;
+  background-color: rgb(224, 81, 15);
+  font-size: 20px;
+  color: whitesmoke;
+}
+form #button button a {
+  color: aliceblue;
+}
+
+/*# sourceMappingURL=fillForm.css.map */

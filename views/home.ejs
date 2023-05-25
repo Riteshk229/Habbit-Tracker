@@ -1,69 +1,49 @@
 <link rel="stylesheet" href="/css/home.css">
  
-<!-- header  -->
-<%- include('_header'); %>
+<main>
 
-<div>
    <!----------- if user is not logged in ----------->
    <% if(!locals.user) { %>
-       <img class="welcome-img" src="/img/landing.jpg">
-       <div class="welcome-title">
-            Build the best version of yourself <br> by mastering your habits.
-       </div>
-       <form action="/users/sign-up" method="GET">
-           <button class="welcome-button">Get Started</button>
-       </form>
-   <% }
+    <div id="welcome">
+        <div id ="text">
+        Welcome to the <strong> Track it </strong> App.
+            <br>
+        <strong> Sign In </strong> / <strong> Sign Up </strong> to use.
+        </div>
+        <div id ='button'>
+            <button type="button"> <a href="/user/sign-in">Sign In</a></button>
+            <button type="button"> <a href="/user/sign-up">Sign Up</a></button>
+        </div>
+    </div>
 
-   <!----------- if no habits are added ----------->
-   else if(locals.user && locals.habits.length==0) { %>
-   <%= habits %>
-       <div id="noHabitText">Looks like you aren't tracking any habits yet, so...
-              <br> what do you want to start doing every day? :)</div>
-       <!-- button to open add habit form  -->
-       <button id="open-btn-fixed" onclick="openForm()" > + Add Habit</button>
-       <div class="form-popup" id="myForm">
-           <form action="/users/habit/create-habit" id="createHabit" method="POST" class="form-container">
-               <input type="text" name="title" placeholder="Enter habit title" required>
-               <input type="text" name="desc" placeholder="Description">
-               <button type="reset" id="cancel-btn" onclick="closeForm()">Cancel</button>
-               <button type="submit" id="save-btn">Save</button>
-           </form>
-       </div>
-   <% }
-   
-   <!------------ show habits ------------>
-   else { %>
-       <div>
-           <div>
+    <!------------ if user is logged in ------------->
+   <% } else { %>
+
+        <!------------- if there is no habbit  ------------->
+        <%if(!locals.habbits || locals.habbits.length == 0) {%>
+            <div id="nohabbit">
+                <div id="nohabbit-text">
+                    <h2>
+                        You don't have any habbits to track!!
+                    </h2>
+                    <h3>Add them by here &#8595;</h3>
+                </div>
+                <%- include('no_habbits', { user: user, habbits: habbits }) %>
+            </div>
+         <%} else { %>
+
+            <!------------- if there is habbit to show  ------------->
+           <div id="habbit">
+ 
+             <button id="change-view" class="button-30" onclick="changeView()" > Show Daily</button>
+                <!-- weekly view -->
+                <%- include('weekly_view'); %>
                
-               <!-- weekly view -->
-               <%- include('weekly_view'); %>
-               
-               <!-- daily view  -->
-               <%- include('daily_view'); %>
+                <!-- daily view  -->
+                <%- include('daily_view'); %>
 
-           </div>
-
-
-           <!-- button to open add habit form  -->
-           <button id="open-btn" class="button-30" onclick="openForm()" > + Add Habit</button>
-           <div class="form-popup" id="myForm">
-               <form action="/users/habit/create-habit" id="createHabit" method="POST" class="form-container">
-                   <input type="text" name="title" placeholder="Enter habit title" required>
-                   <input type="text" name="desc" placeholder="Description">
-                   <button type="reset" id="cancel-btn" onclick="closeForm()">Cancel</button>
-                   <button type="submit" id="save-btn">Save</button>
-               </form>
-           </div>
-           <!-- button to toggle between daily/weekly view -->
-           <button id="change-view" class="button-30" onclick="changeView()" > Show Daily</button>
-       </div>
+            </div>
+            <% } %>
    <% } %>
-</div>
-
-
-
-
-<!-- importing this script to open/close form -->
-<script src="/js/home.js"></script>
+   <script src="/js/home.js"></script>
+</main>

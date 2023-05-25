@@ -1,29 +1,39 @@
 <link  rel="stylesheet" href="/css/user_sign_in.css">
 <main>
+
+    <!---- Sign In container---->
     <div id = 'sign-in'>
+
+        <!---- Welcome text  ---->
         <p> Welcome </p>
+
+        <!---- Sign In form ---->
         <form method="post" action="/user/create-session">
+
+            <!-- For email -->
             <div class="input">
                 <label for="email"> Email </label>
                 <input type="email" name="email" placeholder="Your Email" required>
             </div>
+
+            <!-- For password -->
             <div class="input">
                 <label for="password"> Password </label>
                 <input type="password" name="password" placeholder="Password" required>
             </div>
-            <div class="input">
-                <label for="adminCode"> Admin </label>
-                <input type="password" name="adminCode" placeholder="If Admin, Enter Admin Code">
-            </div>
+
+            <!-- To submit form  -->
             <div>
                 <button type="submit"> Sign In </button>
             </div>
+
+            <!-- if password forgotten -->
             <div id = "forgot">
                 <p>
                     <a href="/user/forgot"> Forgot Password ?</a>
                 </p>
                 <p>
-                    Don't have an account? <a href="/user/sign-in"> Sign Up.</a>
+                    Don't have an account? <a href="/user/sign-up"> Sign Up.</a>
                 </p>
             </div>
         </form>

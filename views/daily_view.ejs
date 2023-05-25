@@ -1,0 +1,52 @@
+
+<% for(let habbit of habbits) {%>  
+
+    <div class="daily-view" >
+
+        <!-- habit title -->
+        <div class="habbit-title"> <h2><%= habbit.title %></h2> </div>
+
+        <!-- habit details in daily view-->
+        <div class="habbit-container">
+
+            <div class="daily">
+
+                <!-- date -->
+                <div class="date">
+
+                    <% 
+                        let months = ["","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+                        let startDate = habbit.dates[0].date;
+                        let start = months[startDate.trim(" ")[0]] +" " +startDate.substring(2);
+                    %>
+                    <%=start%>
+                </div>
+
+                <!-- habit desciption -->
+                <div class="habbit-desc">
+                    <% if(habbit.desc) { %>
+                        <p><%= habbit.desc %></p> 
+                    <% } else {%>
+                        <P> No information was provided for this habit !!</P>
+                    <%}%>
+                </div>
+
+            </div>
+            
+            <!-- options -->
+            <div class="menu">  
+                <a class="clickIt" id="<%= habbit._id%>" style="text-decoration: none;">
+                    <i class="fa-solid fa-pencil fa-lg" style="color: rgb(241, 121, 109);"></i>
+                </a>
+                <!-- edit form -->
+                <div class="modal" id="myEditForm_<%= habbit._id %>">
+                    <%- include('edit_habbit',{habbit:habbit});%>
+                </div>
+                <a href="/user/habbit/delete-habbit/<%=habbit._id%>" style="text-decoration: none;">
+                    <i class="fa-regular fa-trash-can fa-lg" style="color: rgb(241, 121, 109);"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+<% } %>
+<script src="/js/home.js"></script>

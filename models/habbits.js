@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-// Create a habit schema
-const habitSchema = new mongoose.Schema({
+// Create a habbit schema
+const habbitSchema = new mongoose.Schema({
     title: {
         type: String,
         required : true
@@ -22,6 +22,5 @@ const habitSchema = new mongoose.Schema({
 })
 
 // Creating new model and exporting it
-const Habit = mongoose.model('Habit', habitSchema);
-
-module.exports = Habit;
+const Habbit = mongoose.model('Habbit', habbitSchema);
+module.exports = Habbit;

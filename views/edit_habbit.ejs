@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/editForm.css">
+
+<!--Form to Edit Habbit -->
+<form action="user/habbit/edit-habbit/<%=habbit._id%>" id="edithabbit" method="POST" class="form-container">
+    
+    <!-- Welcome text -->
+    <h2 style="color: aliceblue;"> Edit Habbit</h2>
+
+    <!-- Habbit Name -->
+    <input type="text" class="title" name="title" placeholder="<%=habbit.title %>" value="<%=habbit.title %>" required>
+    
+    <!-- Habbit Description -->
+    <input type="text" class="desc"name="desc" value="<%=habbit.desc %>" placeholder="<%=habbit.desc %>">
+    
+    <div class="button">
+        <button class="closeIt" type="reset" id="cancel-btn">Cancel</button>
+        <button class="closeIt" type="submit" id="save-btn">Save</button>
+    </div>
+
+</form>

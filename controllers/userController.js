@@ -81,3 +81,11 @@ module.exports.forgetPasswordPage = function(req, res){
     req.flash("success","Reset password link has been send to the email!!")
     return res.redirect("back");
 }
+
+
+// Re-routes to add new habbits
+module.exports.add = function(req,res){
+    return res.render('addHabbits',{
+        title: "Add New Habbit"
+    });
+};

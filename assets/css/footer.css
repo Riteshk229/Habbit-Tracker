@@ -1,0 +1,14 @@
+footer {
+  display: flex;
+  height: auto;
+  background-color: rgb(7, 80, 80);
+}
+footer p {
+  margin: 0;
+  margin-left: 2%;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=footer.css.map */

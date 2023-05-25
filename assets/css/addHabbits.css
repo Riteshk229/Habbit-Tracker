@@ -1,0 +1,57 @@
+#add-form {
+  height: auto;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/images/stepping stones.jfif");
+  background-repeat: repeat-x;
+  background-size: auto;
+}
+#add-form form {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(70, 209, 202, 0.6);
+  border-radius: 20px;
+}
+#add-form form input {
+  display: block;
+  margin: 10px;
+  width: 300px;
+  padding: 5px;
+  border: none;
+  text-align: center;
+  box-shadow: 0px 0px 2px 2px lavender;
+}
+#add-form form #habbit {
+  height: 30px;
+  margin-bottom: 2%;
+  width: 300px;
+}
+#add-form form #desc {
+  height: 50px;
+  width: 300px;
+}
+#add-form form #button {
+  margin-top: 5%;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+#add-form form #button button {
+  width: 30%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: rgb(224, 81, 15);
+  font-size: 20px;
+  color: whitesmoke;
+}
+#add-form form #button button a {
+  color: aliceblue;
+}
+
+/*# sourceMappingURL=addHabbits.css.map */

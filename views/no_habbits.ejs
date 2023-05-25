@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/fillForm.css">
+
+<!-- form to addd new habbits -->
+<div id ="add-form">
+    <form action="/user/habbit/create-habbit" method="POST">
+        <!-- habbit -->
+        <input type="text" id="habbit" name="title" placeholder="Enter habbit..." required>
+        <!-- habbit descripption -->
+        <input type="text" id="desc"name="desc" placeholder="About the habbit">
+
+        <div id="button">
+            <button type="reset">Cancel</button>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</div>

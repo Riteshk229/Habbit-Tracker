@@ -1,17 +1,17 @@
 // const Post = require('../models/post');
 const User = require('../models/user');
-const Habit = require('../models/habits');
+const Habbit = require('../models/habbits');
 
 
-// this function takes user to home
+// Shows Habbit or make a new habbit if there isn't one
 module.exports.home = async function(req, res) {
     if(req.user){
-        let habits = await Habit.find({user: req.user._id}); 
-        // console.log(habits)
+
+        let habbit = await Habbit.find({user: req.user._id}); 
         
         return res.render('home', {
-            title : "Habit Tracker",
-            habits : habits,
+            title : "Habbit Tracker",
+            habbits : habbit,
             weeklyDates : await getOneWeekDate()
         })
     }else{
@@ -21,7 +21,7 @@ module.exports.home = async function(req, res) {
     }
 }
 
-// This function is for providing the 7days date, which will be displayed afte the habit is created.
+// function to provide week's date
 function getOneWeekDate(){
     let months = ["","Jan", "Feb", "March", "Apr", "May", "June", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
     let dates = [];
@@ -35,11 +35,4 @@ function getOneWeekDate(){
         dates.push(mm +" " +dd);
     }
     return dates;
-}
-
-
-module.exports.notFound = async function(req, res) {
-    return res.render('404', {
-        title :'Not Found!'
-    });
 }

@@ -22,10 +22,14 @@ router.post('/create-session',passport.authenticate('local',{
 // Sign-out User
 router.get('/sign-out',userController.destroySession);
 
-
-
 // Reirect and send a password reset email
 router.get('/forgot',userController.forgetPasswordPage);
+
+// Redirect to habbit routes
+router.use('/habbit',require('./habbit'));
+
+// To render new habbit page
+router.get('/addHabbits',userController.add);
 
 
 module.exports = router;

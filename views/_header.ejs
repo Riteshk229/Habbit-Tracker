@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/header.css">
+
+<header>
+    <nav>
+        <div id="page-title"> 
+                <a href="/">Track it | Habbit Tracker App</a>
+        </div>
+
+        <div id="page-links">
+
+            <!-- if logged in -->
+            <% if(locals.user) {%>
+
+                <div>
+                    <a href="/">Welcome <%= user.name  %> </a>
+                </div>
+                <div>
+                    <a href="/user/addHabbits"> Add New Habits</a>
+                </div>
+                <div>
+                    <a href="/user/sign-out"> Sign Out</a>
+                </div>
+
+            <%}%>
+        </div>   
+    
+    </nav>
+</header>
+

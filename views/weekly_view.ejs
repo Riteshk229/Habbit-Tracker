@@ -1,0 +1,48 @@
+<% for(let habbit of habbits) {%>   
+    <div class="weekly-view">
+        
+        <!-- habit title -->
+        <div class="habbit-title"> <h2><%= habbit.title %></h2> </div>
+
+        <!-- habit details in weekly view-->
+        <div class="habbit-container">
+            <% for(let date of weeklyDates) { %>
+                <div class="day-container">
+                <!-- date -->
+                    <div class="date">
+                        <p><%= date %></p>
+                    </div>
+                    <% 
+                        let found;
+                        let status;
+                        habbit.dates.find((item) => {
+                            if(item.date === date)
+                            {
+                                found = true;
+                                status = item.complete;
+                            }
+                        });
+                    %>
+                <!-- status -->
+                    <div >
+                        <a href="/user/habbit/toggle-status/?id=<%= habbit._id%>&date=<%=date%>" class="mark-status">
+                            <% if(found && status=='y') { %>
+                                <i class="fas fa-check-square" style="color: rgb(97, 245, 38)"></i>
+                            <% } else if(found && status=='n') { %>
+                                <i class="fas fa-square-xmark" style="color: rgb(255, 25, 4)"></i>
+                            <% } else { %>
+                                <i class="fas fa-check-square" style="color: #ffffff;"></i>
+                            <% } %>
+                        </a>
+                    </div>
+                </div>
+            <% } %>
+            <!-- option to delete -->
+            <div class="close">
+                <a href="/user/habbit/delete-habbit/<%=habbit._id%>" style="text-decoration: none;">
+                    <i class="fa-regular fa-trash-can fa-lg" style="color: rgb(241, 121, 109);"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+<% } %>

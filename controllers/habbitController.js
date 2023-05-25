@@ -1,18 +1,17 @@
-const Habit = require('../models/habit');
-const User = require('../models/user');
+const Habbit = require('../models/habbits');
 
-// this function creates a new habit
-module.exports.createHabit = async function(req, res) {
+// To create new habbits
+module.exports.createhabbit = async function(req, res) {
     try {
 
-        let habit = await Habit.findOne({
+        let habbit = await Habbit.findOne({
             title: req.body.title,
             user: req.user._id
-        }).populate();
+        }).populate('user','name');
 
-        if(!habit) {
+        if(!habbit) {
 
-            let habit = await Habit.create({
+            let habbit = await Habbit.create({
                 title: req.body.title,
                 desc: req.body.desc,
                 user: req.user._id,
@@ -21,31 +20,32 @@ module.exports.createHabit = async function(req, res) {
                      completed : "none"}
             });
 
-            req.flash('success', 'Habit Created Successfully');
+            req.flash('success', 'Habbit Created Successfully!!');
             return res.redirect('/');
         }
     } catch (error) {
-        console.log('Error in habitController/createHabit: ', error);
+        console.log('Error in habitController/createhabit: ', error);
         return;
     }
 }
 
-// this function will change the current status of habit
+// To toggle habbit's status
 module.exports.toggleStatus = async function(req, res) {
     try {
         let id = req.query.id;
         let date = req.query.date;
-        const habit = await Habit.findById(id);
+        const habbit = await Habbit.findById(id);
         console.log(date);
 
-        if(!habit) {
-            console.log('Habit not present!');
+        if(!habbit) {
+            console.log('habit not present!');
             return res.redirect('/');
         }
 
         // take out the date array of the habit.
-        let dates = habit.dates;
+        let dates = habbit.dates;
         let found = false;
+
         // changes the complete argument accodingly.
         dates.find((item, index) =>{
             if(item.date == date){
@@ -63,68 +63,61 @@ module.exports.toggleStatus = async function(req, res) {
         if(!found) {
             dates.push({date : date, complete : 'y'});
         }
-        // at last save the dates.
-        habit.dates = dates;
+        // Save dates
+        habbit.dates = dates;
         await habit.save();
         return res.redirect('/');
         
     } catch (error) {
         console.log('Error in habitController/toggleStatus', error);
-        return res.render('404', {
-            title: "Not Found"
-        });
+        return res.redirect('/');
     }
 }
 
-// this function removes the habit
-module.exports.deleteHabit = async function(req, res) {
+// To delete Habbit
+module.exports.deletehabbit = async function(req, res) {
     try {
-        let id = req.query.id;
-        let user = req.user._id;
+        let id = req.params.id;
 
-        await Habit.deleteOne({ _id : id, user: user });
-        req.flash('success', 'Habit Deleted Successfully');
+        await Habbit.findByIdAndDelete(id);
+
+        req.flash('success', 'Habbit Deleted Successfully!!!');
         return res.redirect('/');
         
     } catch (error) {
-        console.log('Error in habitController/deleteHabit', error);
-        return res.render('404', {
-            title: "Not Found"
-        })
+        console.log('Error in habitController/deletehabit', error);
+        return res.redirect('back');
     }
 }
 
-// this function will edit the habit title/desc
-module.exports.editHabit = async function(req, res) {
+//To edit Habbit
+module.exports.edithabbit = async function(req, res) {
+    
     try {
         let newTitle = req.body.title;
         let newDesc = req.body.desc;
-        let id = req.query.id;
-        let user = req.user._id;
+        let id = req.params.id;
 
-        let updatedResult = await Habit.findByIdAndUpdate(
+        let updatedResult = await Habbit.findByIdAndUpdate(
             {
                 _id: id,
-                user: user
             }, {
                 title: newTitle,
                 desc: newDesc
             }
         );
-        // console.log(updatedResult);
-        req.flash('success', 'Habit Updated Successfully');
-        return res.redirect('/');
+
+        req.flash('success', 'Habbit Updated Successfully!');
+        return res.redirect('back');
         
     } catch (error) {
-        console.log('Error in habitController/editHabit', error);
-        return res.render('404', {
-            title: "Not Found"
-        })
+        console.log('Error in habitController/edithabit', error);
+        return res.redirect('back');
     }
 }
 
 
-// this fucntion will return the current data, which will helpful for getting the range of dates
+// Return's Current Date
 function getTodayDate(){
     let today = new Date();
     let date = today.getDate();
