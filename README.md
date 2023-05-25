@@ -1,5 +1,9 @@
 # HabitTracker
 
+A FullStack, app to track your daily and weekly activity.
+
+## Description
+
 The Habit Tracker is a web application designed to help users create, update, delete, and track their habits on a daily basis.
 It provides a user-specific experience, allowing each user to manage their own habits and mark them as done or not done.
 
